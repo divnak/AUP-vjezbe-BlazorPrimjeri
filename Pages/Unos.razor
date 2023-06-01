@@ -1,0 +1,39 @@
+@page "/unos"
+
+<PageTitle>Unos podataka</PageTitle>
+
+<h1>Unos podataka</h1>
+
+<p>Jednostavni unos podataka bez klasa.</p>
+
+<div>
+    <label>Upišite ime:</label>
+    <input @bind="ime" type="text">
+</div>
+
+<div>
+    <label>Upišite godinu rođenja:</label>
+    <input @bind="godina" type="number">
+</div>
+
+<div>
+    <label>Upišite datum upisa:</label>
+    <input @bind="datum" type="date">
+</div>
+
+<button @onclick="Pokreni">Pokreni</button>
+
+<div>Ispis: @ispis</div>
+
+@code {
+    private string ispis = "test";
+    private int godina = 2000;
+    private string ime = "Pero";
+    private DateTime datum = new DateTime(2023, 10, 1);
+    private void Pokreni()
+    {
+        ispis = $"Vaše ime je {ime}. Rođeni ste {godina} godine.";
+    }
+
+}
+

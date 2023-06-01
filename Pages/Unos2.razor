@@ -1,0 +1,52 @@
+@using mojaBiblioteka;
+@page "/unos2"
+
+<PageTitle>Unos osobe</PageTitle>
+
+<h1>Unos osobe</h1>
+
+<div>
+    <label>Unesi ime osobe:</label>
+    <input @bind="unos.ime" type="text">
+</div>
+
+<div>
+    <label>Unesi godinu rođenja osobe:</label>
+    <input @bind="unos.godina" type="number">
+</div>
+
+<div>
+    Ispis:
+    <textarea cols="30" rows="10">@ispis</textarea>
+</div>
+
+<div>
+    <button @onclick="IspisOsobe">Dodaj osobu</button>
+    <button @onclick="IspisSvih">Ispiši sve</button>
+</div>
+
+@code {
+    private List<Osoba> popis = new List<Osoba>();
+    private string ispis = "";
+    private Osoba unos = new Osoba();
+    private void IspisOsobe()
+    {
+        ispis = unos.ToString();
+        //ne možemo dodati objekt "nova" jer je klasa referentni tip
+        //ako bi dodali "nova", svi elementi liste "popis" bi bili isti
+        //kako bi riješili problem, dodali smo novi konstruktor koji će napraviti kopiju
+        Osoba novaOsoba = new Osoba(unos);
+        popis.Add(novaOsoba);
+        ispis += "\nUkupno: " + popis.Count;
+    }
+
+    private void IspisSvih()
+    {
+        ispis = "";
+        foreach (Osoba os in popis)
+        {
+            ispis += os.ToString() + "\n";
+        }
+    }
+
+}
