@@ -1,0 +1,94 @@
+@using mojaBiblioteka;
+@page "/studenti3bs"
+
+<PageTitle>Unos studenata</PageTitle>
+
+<h1>Unos studenata s provjerom podataka i tablicom</h1>
+
+<p>
+    <a href="https://getbootstrap.com/docs/4.0/components/forms/" target="_blank">Bootstrap form - upute</a>
+</p>
+
+<div class="container">
+<EditForm Model="unosStudenta" OnValidSubmit="@SpremiStudenta">
+    <!-- Za provjeru ispravnosti - ispis poruka -->
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+    <div class="form-group">
+        <label>Ime:</label>
+        <InputText class="form-control" @bind-Value="unosStudenta.Ime"></InputText>
+    </div>
+
+    <div class="form-group">
+        <label>Prezime:</label>
+        <InputText class="form-control" @bind-Value="unosStudenta.Prezime"></InputText>
+    </div>
+
+    <div class="form-group">
+        <label>Ects:</label>
+        <InputNumber class="form-control" @bind-Value="unosStudenta.Ects"></InputNumber>
+    </div>
+
+    <div class="form-group">
+        <label>Grad:</label>
+        <InputSelect class="form-control" @bind-Value="unosStudenta.Grad">
+            <option value="">Odaberite grad...</option>
+            <option value="Split">Split</option>
+            <option value="Zagreb">Zagreb</option>
+        </InputSelect>
+    </div>
+
+    <div>
+        <button class="btn btn-success" type="submit">Spremi</button>
+        <button class="btn btn-danger" type="reset">Odustani</button>
+    </div>
+</EditForm>    
+</div>
+
+<div>
+    <h3>Ispis</h3>
+    <textarea class="form-control" cols="50" rows="5">@unosStudenta</textarea>
+    <div>Informacije: @info</div>
+</div>
+
+<div>
+        <table class="table">
+        <thead>
+            <tr>
+                <th>Ime</th>
+                <th>Prezime</th>
+                <th>Grad</th>
+                <th>Ects</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (StudentProvjera s in popis)
+            {
+                <tr>
+                    <td>@s.Ime</td>
+                    <td>@s.Prezime</td>
+                    <td>@s.Grad</td>
+                    <td>@s.Ects</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@code {
+    private StudentProvjera unosStudenta = new StudentProvjera();
+    private List<StudentProvjera> popis = new List<StudentProvjera>();
+    private string info = "";
+
+    // ako je uključena provjera, ovo će raditi samo kad su podaci ispravni
+    private void SpremiStudenta()
+    { 
+        popis.Add(unosStudenta);
+        info = "Ukupno upisano: " + popis.Count;
+
+        // nakon uspješnog unosa, stvaramo novi primjerak s praznim podacima
+        // kako ne bi bio povezan s prethodnim unosom
+        unosStudenta = new StudentProvjera();
+    }
+
+}

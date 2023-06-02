@@ -34,3 +34,6 @@ Važne je zapamtiti:
 * C# - [ms-dotnettools.csharp](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
 * Blazor Snippet Pack - [adrianwilczynski.blazor-snippet-pack](https://marketplace.visualstudio.com/items?itemName=adrianwilczynski.blazor-snippet-pack)
 
+## Upute
+
+Upute možete pronaći na Microsoft-ovim stranicama, npr. [learn.microsoft.com](https://learn.microsoft.com/en-us/aspnet/core/blazor/forms-and-input-components?view=aspnetcore-7.0)

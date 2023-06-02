@@ -1,0 +1,14 @@
+[
+    {
+        "Ime": "Pero",
+        "Prezime": "Perić",
+        "Grad": "Split",
+        "Ects": 22
+    },
+    {
+        "Ime": "Marija",
+        "Prezime": "Marić",
+        "Grad": "Zagreb",
+        "Ects": 10
+    }
+]
