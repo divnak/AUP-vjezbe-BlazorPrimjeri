@@ -2,6 +2,17 @@
 
 .NET 7.0.
 
+Upute:
+
+Ako želite vidjeti primjere za EditForm, odaberite branch EditForm:
+
+<!-- ![EditForm](./_pics/branch.png) -->
+<img src="./_pics/branch.png" alt="Alt Text" width="200px"/>
+
+Upute za preuzimanje koda za odabrani "branch":
+<!-- ![ZIP](./_pics/zip.png) -->
+<img src="./_pics/zip.png" alt="Alt Text" width="200px"/>
+
 ## Izrada jednostavne Blazor WebAssembly aplikacije
 
 Novu Blazor WASM aplikaciju stvaramo upisivanjem naredbe u terminal:
